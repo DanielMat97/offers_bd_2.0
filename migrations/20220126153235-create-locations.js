@@ -1,12 +1,11 @@
 'use strict';
-const { database_config } = require("../config/index");
-const table = {
+const {database_config} =require("../config")
+const table = { 
   schema: database_config.schema,
-  tableName: "offer_reviews",
-};
-
+  tableName: "locations"
+}
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable(table, {
       id: {
         allowNull: false,
@@ -14,23 +13,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      observations: {
+      direction: {
         type: Sequelize.STRING
       },
-      user: {
+      latitude: {
         type: Sequelize.STRING
       },
-      new_sate_id: {
-        type: Sequelize.INTEGER
+      longitude: {
+        type: Sequelize.STRING
       },
-      date_time: {
-        type: Sequelize.DATE
-      },
-      review_section_id: {
-        type: Sequelize.INTEGER
-      },
-      offer_id: {
-        type: Sequelize.INTEGER
+      online: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
@@ -42,7 +35,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable(table);
   }
 };

@@ -4,10 +4,10 @@ require("dotenv").config({
 module.exports = {
   database_config: {
     username: "postgres",
-    password: "1797",
-    database: "offers_db",
+    password: "0000",
+    database: "enterprises",
     host: "localhost",
     dialect: "postgres",
-    schema: "plink_offers",
+    schema: "plink_enterprises",
   },
 };

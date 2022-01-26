@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class offer_point_sale extends Model {
+  class countries extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,16 +12,16 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  offer_point_sale.init({
-    point_sale_id: DataTypes.INTEGER,
-    offer_pk: DataTypes.INTEGER,
-    point_sale_address: DataTypes.STRING,
-    city_code: DataTypes.INTEGER,
-    city_description: DataTypes.STRING
+  }
+  countries.init({
+    country_iso_3: DataTypes.STRING,
+    description: DataTypes.STRING,
+    country_iso_2: DataTypes.STRING,
+    country_code: DataTypes.STRING,
+    active: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'offer_point_sale'
+    modelName: 'countries',
   });
-  return offer_point_sale;
+  return countries;
 };

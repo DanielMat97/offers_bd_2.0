@@ -1,12 +1,11 @@
 'use strict';
-const { database_config } = require("../config/index");
-const table = {
+const {database_config} =require("../config")
+const table = { 
   schema: database_config.schema,
-  tableName: "offer_settings",
-};
-
+  tableName: "countries"
+}
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable(table, {
       id: {
         allowNull: false,
@@ -14,37 +13,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      country: {
+      country_iso_3: {
+        type: Sequelize.STRING
+      },
+      description: {
+        type: Sequelize.STRING
+      },
+      country_iso_2: {
+        type: Sequelize.STRING
+      },
+      country_code: {
         type: Sequelize.STRING
       },
       active: {
-        type: Sequelize.STRING
-      },
-      type: {
-        type: Sequelize.STRING
-      },
-      title: {
-        type: Sequelize.STRING
-      },
-      subtitle: {
-        type: Sequelize.STRING
-      },
-      prefix: {
-        type: Sequelize.STRING
-      },
-      suffix: {
-        type: Sequelize.STRING
-      },
-      side_text: {
-        type: Sequelize.STRING
-      },
-      placeholder: {
-        type: Sequelize.STRING
-      },
-      icon: {
-        type: Sequelize.STRING
-      },
-      input_properties: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -57,7 +38,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable(table);
   }
 };

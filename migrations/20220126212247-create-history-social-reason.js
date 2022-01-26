@@ -1,12 +1,11 @@
 'use strict';
-const { database_config } = require("../config/index");
-const table = {
+const {database_config} =require("../config")
+const table = { 
   schema: database_config.schema,
-  tableName: "offer_point_sales",
-};
-
+  tableName: "history_social_reasons"
+}
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
+  async up(queryInterface, Sequelize) {
     await queryInterface.createTable(table, {
       id: {
         allowNull: false,
@@ -14,19 +13,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      point_sale_id: {
-        type: Sequelize.INTEGER
+      company_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: 'companys',
+            schema: database_config.schema
+          },
+          key: 'id'
+        }
       },
-      offer_pk: {
-        type: Sequelize.INTEGER
-      },
-      point_sale_address: {
+      nit: {
         type: Sequelize.STRING
       },
-      city_code: {
-        type: Sequelize.INTEGER
-      },
-      city_description: {
+      company_name: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -39,7 +39,7 @@ module.exports = {
       }
     });
   },
-  down: async (queryInterface, Sequelize) => {
+  async down(queryInterface, Sequelize) {
     await queryInterface.dropTable(table);
   }
 };
