@@ -14,9 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   history_social_reason.init({
-    company_id: DataTypes.INTEGER,
+    enterprise_id: DataTypes.INTEGER,
     nit: DataTypes.STRING,
-    company_name: DataTypes.STRING
+    enterprise_name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'history_social_reason',

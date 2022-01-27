@@ -22,11 +22,11 @@ module.exports = {
       brand_name: {
         type: Sequelize.STRING
       },
-      id_company: {
+      id_enterprise: {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: 'companys',
+            tableName: 'enterprises',
             schema: database_config.schema
           },
           key: 'id'

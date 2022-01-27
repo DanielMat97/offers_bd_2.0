@@ -2,7 +2,7 @@
 const {database_config} =require("../config")
 const table = { 
   schema: database_config.schema,
-  tableName: "companys"
+  tableName: "enterprises"
 }
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -16,16 +16,16 @@ module.exports = {
       nit: {
         type: Sequelize.STRING
       },
-      is_group_company: {
+      is_group_enterprise: {
         type: Sequelize.BOOLEAN
       },
-      id_group_company: {
+      id_group_enterprise: {
         type: Sequelize.INTEGER
       },
       description: {
         type: Sequelize.STRING
       },
-      company_name: {
+      enterprise_name: {
         type: Sequelize.STRING
       },
       trial_count: {

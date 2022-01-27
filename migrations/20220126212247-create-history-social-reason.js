@@ -13,11 +13,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      company_id: {
+      enterprise_id: {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: 'companys',
+            tableName: 'enterprises',
             schema: database_config.schema
           },
           key: 'id'
@@ -26,7 +26,7 @@ module.exports = {
       nit: {
         type: Sequelize.STRING
       },
-      company_name: {
+      enterprise_name: {
         type: Sequelize.STRING
       },
       createdAt: {

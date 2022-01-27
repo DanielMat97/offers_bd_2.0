@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     name_points_sale: DataTypes.STRING,
     reference: DataTypes.STRING,
     brand_name: DataTypes.STRING,
-    id_company: DataTypes.INTEGER,
+    id_enterprise: DataTypes.INTEGER,
     id_location: DataTypes.INTEGER,
     address_description: DataTypes.STRING,
     franchise_amex: DataTypes.STRING,
